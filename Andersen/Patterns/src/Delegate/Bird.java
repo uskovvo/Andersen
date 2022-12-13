@@ -1,6 +1,8 @@
+package Delegate;
+
 public class Bird {
 
-    CanFly canFly;
+    private CanFly canFly;
 
     public Bird(CanFly canFly) {
         this.canFly = canFly;
@@ -12,5 +14,9 @@ public class Bird {
 
     public void flying(){
         canFly.flying();
+    }
+
+    public void tweet(){
+        System.out.println("Я птица и я чирикаю");
     }
 }

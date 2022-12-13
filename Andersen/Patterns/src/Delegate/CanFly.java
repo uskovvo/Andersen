@@ -1,3 +1,5 @@
+package Delegate;
+
 public class CanFly {
 
     public void takeOff(){
