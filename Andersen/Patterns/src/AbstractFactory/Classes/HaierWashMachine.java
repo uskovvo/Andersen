@@ -1,8 +1,9 @@
 package AbstractFactory.Classes;
 
+import AbstractFactory.Interfaces.Functions;
 import AbstractFactory.Interfaces.WashMachine;
 
-public class HaierWashMachine implements WashMachine {
+public class HaierWashMachine implements WashMachine, Functions {
     @Override
     public void washing() {
         System.out.println("Постирано бережно!!!");
@@ -16,5 +17,10 @@ public class HaierWashMachine implements WashMachine {
     @Override
     public void drying() {
         System.out.println("Уже все сухо!!!");
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Включаю бесшумный режим");
     }
 }

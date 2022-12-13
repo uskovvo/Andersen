@@ -1,6 +1,4 @@
-import AbstractFactory.Classes.HaierFactory;
-import AbstractFactory.Classes.LGFactory;
-import AbstractFactory.Classes.LGRefrigerator;
+import AbstractFactory.Classes.*;
 import AbstractFactory.Interfaces.AirConditioner;
 import AbstractFactory.Interfaces.Factory;
 import AbstractFactory.Interfaces.Refrigerator;
@@ -30,7 +28,8 @@ public class Main {
 //        patternFactory();
 //        patternAbstractFactory();
 //        patternBuilder();
-        patternPrototype();
+//        patternPrototype();
+        patternComposite();
     }
 
     //TODO: Delegate pattern
@@ -128,8 +127,31 @@ public class Main {
     public static void patternPrototype(){
         User user = new User("Катя", 19);
         System.out.println(user + "\nХэшкод этого юзера: " + user.hashCode());
-        User clone = user.clone();
 
+        User clone = user.clone();
         System.out.println(clone + "\nХэшкод этого юзера: " + clone.hashCode());
+    }
+
+    //TODO: Composite pattern
+    public static void patternComposite(){
+        HaierRefrigerator ref1 = new HaierRefrigerator();
+        HaierRefrigerator ref2 = new HaierRefrigerator();
+
+        HaierWashMachine wash1 = new HaierWashMachine();
+        HaierWashMachine wash2 = new HaierWashMachine();
+
+        CompositeFunctions f1 = new CompositeFunctions();
+        CompositeFunctions f2 = new CompositeFunctions();
+        CompositeFunctions f3 = new CompositeFunctions();
+
+        f2.add(ref1);
+        f2.add(wash2);
+        f1.add(wash1);
+        f1.add(f2);
+        f3.add(ref2);
+        f3.add(f1);
+        f3.add(ref2);
+
+        f2.turnOn();
     }
 }
