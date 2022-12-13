@@ -1,9 +1,13 @@
 import AbstractFactory.Classes.HaierFactory;
 import AbstractFactory.Classes.LGFactory;
+import AbstractFactory.Classes.LGRefrigerator;
 import AbstractFactory.Interfaces.AirConditioner;
 import AbstractFactory.Interfaces.Factory;
 import AbstractFactory.Interfaces.Refrigerator;
 import AbstractFactory.Interfaces.WashMachine;
+import Builder.RefWithNoFrost;
+import Builder.RefWithoutNoFrost;
+import Builder.User;
 import Delegate.Bird;
 import Delegate.CanFly;
 import Delegate.Fly;
@@ -16,17 +20,23 @@ import Factory.LarvaCreator;
 import java.util.Scanner;
 
 public class Main {
+
+    static Bird bird;
+    static Fly fly;
+
     public static void main(String[] args) {
-//        patternDelegate();
-//        patternFacade();
+//        patternDelegate(bird, fly);
+//        patternFacade(bird, fly);
 //        patternFactory();
-        patternAbstractFactory();
+//        patternAbstractFactory();
+//        patternBuilder();
+        patternPrototype();
     }
 
     //TODO: Delegate pattern
-    public static void patternDelegate() {
-        Bird bird = new Bird(new CanFly());
-        Fly fly = new Fly();
+    public static void patternDelegate(Bird bird, Fly fly) {
+        bird = new Bird(new CanFly());
+        fly = new Fly();
 
         bird.myName();
         bird.takeOff();
@@ -38,9 +48,9 @@ public class Main {
     }
 
     //TODO: Facade pattern
-    public static void patternFacade() {
-        Bird bird = new Bird(new CanFly());
-        Fly fly = new Fly();
+    public static void patternFacade(Bird bird, Fly fly) {
+        bird = new Bird(new CanFly());
+        fly = new Fly();
         SoundsOfNature soundsOfNature = new SoundsOfNature(bird, fly);
         soundsOfNature.sounds();
     }
@@ -74,7 +84,7 @@ public class Main {
     }
 
     //TODO: Abstract Factory pattern
-    private static void patternAbstractFactory() {
+    public static void patternAbstractFactory() {
         Scanner scanner = new Scanner(System.in);
         System.out.print(
                 "Чья техника вас интересует?\n" +
@@ -92,12 +102,34 @@ public class Main {
         air.cooling();
     }
 
-    private static Factory getTechnology(String str) {
+    public static Factory getTechnology(String str) {
         if (str.equals("1")) {
             return new LGFactory();
         } else if (str.equals("2")) {
             return new HaierFactory();
         }
         return null;
+    }
+
+    //TODO: Builder pattern
+    public static void patternBuilder() {
+        User user = new User();
+
+        user.setRefBuilder(new RefWithNoFrost());
+        LGRefrigerator lgRefrigerator = user.chooseModel();
+        System.out.println(lgRefrigerator + "\n");
+
+        user.setRefBuilder(new RefWithoutNoFrost());
+        LGRefrigerator lgRefrigerator1 = user.chooseModel();
+        System.out.println(lgRefrigerator1);
+    }
+
+    //TODO: Prototype pattern
+    public static void patternPrototype(){
+        User user = new User("Катя", 19);
+        System.out.println(user + "\nХэшкод этого юзера: " + user.hashCode());
+        User clone = user.clone();
+
+        System.out.println(clone + "\nХэшкод этого юзера: " + clone.hashCode());
     }
 }

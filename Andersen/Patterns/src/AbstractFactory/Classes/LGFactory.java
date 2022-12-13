@@ -6,6 +6,11 @@ import AbstractFactory.Interfaces.Refrigerator;
 import AbstractFactory.Interfaces.WashMachine;
 
 public class LGFactory implements Factory {
+
+    public LGFactory(){
+        System.out.println("Ваш выбор LG");
+    }
+
     @Override
     public Refrigerator getRefrigerator() {
         return new LGRefrigerator();
