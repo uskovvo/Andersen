@@ -1,6 +1,8 @@
 package Delegate;
 
-public class Fly {
+import Factory.CreateEgg;
+
+public class Fly implements CreateEgg {
 
     CanFly canFly = new CanFly();
 
@@ -14,5 +16,14 @@ public class Fly {
 
     public void flying(){
         canFly.flying();
+    }
+
+    @Override
+    public void createEgg() {
+        System.out.println("Я откложила яйца и через неделю жду личинок");
+    }
+
+    public void myName() {
+        System.out.println("Я муха");
     }
 }

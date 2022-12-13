@@ -1,11 +1,17 @@
 package Delegate;
 
-public class Bird {
+import Factory.CreateEgg;
+
+public class Bird implements CreateEgg {
 
     private CanFly canFly;
 
     public Bird(CanFly canFly) {
         this.canFly = canFly;
+    }
+
+    public void myName(){
+        System.out.println("Я птица");
     }
 
     public void takeOff(){
@@ -17,6 +23,11 @@ public class Bird {
     }
 
     public void tweet(){
-        System.out.println("Я птица и я чирикаю");
+        System.out.println("Я чирикаю");
+    }
+
+    @Override
+    public void createEgg() {
+        System.out.println("Я откладываю яйцо и жду через месяц и птенцов");
     }
 }
