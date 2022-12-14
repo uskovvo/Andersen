@@ -30,13 +30,13 @@ public class User implements Cloneable{
     }
 
     @Override
-    public User clone() {
-        return new User(name, age);
+    public User clone() throws CloneNotSupportedException {
+        return (User) super.clone();
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "SomeUser{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';

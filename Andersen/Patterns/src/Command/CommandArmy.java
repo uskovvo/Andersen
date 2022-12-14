@@ -2,7 +2,7 @@ package Command;
 
 import Decorator.ParadoxSystem;
 
-public class CommandArmy extends AbstractS implements Command{
+public class CommandArmy extends AbstractS{
 
     public CommandArmy(ParadoxSystem paradoxSystem) {
         super(paradoxSystem);

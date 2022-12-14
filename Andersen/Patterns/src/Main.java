@@ -7,6 +7,7 @@ import Adapter.Adapter;
 import Builder.RefWithNoFrost;
 import Builder.RefWithoutNoFrost;
 import Builder.User;
+import ChainOfResponsibility.SomeUser;
 import Command.CommandArmy;
 import Command.CommandDisarm;
 import Command.Keyboard;
@@ -27,7 +28,7 @@ public class Main {
     static Bird bird;
     static Fly fly;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, CloneNotSupportedException {
 //        patternDelegate(bird, fly);
 //        patternFacade(bird, fly);
 //        patternFactory();
@@ -37,7 +38,8 @@ public class Main {
 //        patternComposite();
 //        patternAdapter();
 //        patternDecorator();
-        patternCommand();
+//        patternCommand();
+        patternChainOfResponsibility();
     }
 
     //TODO: Delegate pattern
@@ -132,7 +134,7 @@ public class Main {
     }
 
     //TODO: Prototype pattern
-    public static void patternPrototype(){
+    public static void patternPrototype() throws CloneNotSupportedException {
         User user = new User("Катя", 19);
         System.out.println(user + "\nХэшкод этого юзера: " + user.hashCode());
 
@@ -195,5 +197,10 @@ public class Main {
         System.out.println("Юзер снимает с охраны");
         Thread.sleep(500);
         keyboard.disarmSign();
+    }
+
+    //TODO: Chain Of Responsibility pattern
+    public static void patternChainOfResponsibility(){
+        SomeUser someUser = new SomeUser();
     }
 }
