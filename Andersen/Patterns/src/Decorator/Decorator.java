@@ -1,6 +1,6 @@
 package Decorator;
 
-public class Decorator implements TurnOnSignaling{
+abstract class Decorator implements TurnOnSignaling{
     public TurnOnSignaling turnOnSignaling;
 
     public Decorator(TurnOnSignaling turnOnSignaling) {

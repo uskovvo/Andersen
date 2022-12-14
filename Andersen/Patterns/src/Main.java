@@ -7,10 +7,10 @@ import Adapter.Adapter;
 import Builder.RefWithNoFrost;
 import Builder.RefWithoutNoFrost;
 import Builder.User;
-import Decorator.Decorator;
-import Decorator.ParadoxSystem;
-import Decorator.SendHelpMessage;
-import Decorator.SendSms;
+import Command.CommandArmy;
+import Command.CommandDisarm;
+import Command.Keyboard;
+import Decorator.*;
 import Delegate.Bird;
 import Delegate.CanFly;
 import Delegate.Fly;
@@ -36,7 +36,8 @@ public class Main {
 //        patternPrototype();
 //        patternComposite();
 //        patternAdapter();
-        patternDecorator();
+//        patternDecorator();
+        patternCommand();
     }
 
     //TODO: Delegate pattern
@@ -171,14 +172,28 @@ public class Main {
     //TODO: Decorator pattern
     private static void patternDecorator() throws InterruptedException {
         ParadoxSystem sys = new ParadoxSystem();
-        Decorator d1 = new SendHelpMessage(sys);
-        Decorator d2 = new SendSms(new SendHelpMessage(sys));
+        TurnOnSignaling f1 = new SendHelpMessage(sys);
+        TurnOnSignaling f2 = new SendSms(new SendHelpMessage(sys));
         sys.turnOnSign(); //without decorator
 
-        Thread.sleep(1000);
-        d1.turnOnSign(); //with SendHelpMessage
+        Thread.sleep(2000);
+        f1.turnOnSign(); //with SendHelpMessage
 
+        Thread.sleep(2000);
+        f2.turnOnSign(); //with HelpMessage and SendSms
+    }
+
+    //TODO: Command pattern
+    public static void patternCommand() throws InterruptedException {
+        ParadoxSystem p = new ParadoxSystem();
+        Keyboard keyboard = new Keyboard(new CommandArmy(p), new CommandDisarm(p));
+
+        System.out.println("Юзер ставит на охраны");
+        Thread.sleep(500);
+        keyboard.armySign();
         Thread.sleep(1000);
-        d2.turnOnSign(); //with HelpMessage and SendSms
+        System.out.println("Юзер снимает с охраны");
+        Thread.sleep(500);
+        keyboard.disarmSign();
     }
 }
