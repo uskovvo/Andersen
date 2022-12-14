@@ -5,6 +5,7 @@ import AbstractFactory.Interfaces.Factory;
 import AbstractFactory.Interfaces.Refrigerator;
 import AbstractFactory.Interfaces.WashMachine;
 
+//Abstract factory
 public class HaierFactory implements Factory {
 
     public HaierFactory(){

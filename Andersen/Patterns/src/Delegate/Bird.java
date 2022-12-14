@@ -2,7 +2,9 @@ package Delegate;
 
 import Factory.CreateEgg;
 
-public class Bird implements CreateEgg {
+public class Bird implements
+        CreateEgg  //Factory
+{
 
     private CanFly canFly;
 
@@ -26,6 +28,7 @@ public class Bird implements CreateEgg {
         System.out.println("Я чирикаю");
     }
 
+    //Factory
     @Override
     public void createEgg() {
         System.out.println("Я откладываю яйцо и жду через месяц и птенцов");

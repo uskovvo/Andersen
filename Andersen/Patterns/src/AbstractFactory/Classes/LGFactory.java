@@ -11,17 +11,17 @@ public class LGFactory implements Factory {
         System.out.println("Ваш выбор LG");
     }
 
-    @Override
+    @Override //Abstract factory
     public Refrigerator getRefrigerator() {
         return new LGRefrigerator();
     }
 
-    @Override
+    @Override //Abstract factory
     public WashMachine getWashMachine() {
         return new LGWashMachine();
     }
 
-    @Override
+    @Override //Abstract factory
     public AirConditioner getAirConditioner() {
         return new LGAirConditioner();
     }

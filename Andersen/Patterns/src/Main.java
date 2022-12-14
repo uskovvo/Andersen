@@ -3,6 +3,7 @@ import AbstractFactory.Interfaces.AirConditioner;
 import AbstractFactory.Interfaces.Factory;
 import AbstractFactory.Interfaces.Refrigerator;
 import AbstractFactory.Interfaces.WashMachine;
+import Adapter.Adapter;
 import Builder.RefWithNoFrost;
 import Builder.RefWithoutNoFrost;
 import Builder.User;
@@ -29,7 +30,8 @@ public class Main {
 //        patternAbstractFactory();
 //        patternBuilder();
 //        patternPrototype();
-        patternComposite();
+//        patternComposite();
+        patternAdapter();
     }
 
     //TODO: Delegate pattern
@@ -153,5 +155,11 @@ public class Main {
         f3.add(ref2);
 
         f2.turnOn();
+    }
+
+    //TODO: Adapter pattern
+    public static void patternAdapter(){
+        Adapter adapter = new Adapter();
+        adapter.getListOfRandomNumbers();
     }
 }

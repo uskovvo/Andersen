@@ -5,6 +5,7 @@ import AbstractFactory.Interfaces.Functions;
 import java.util.ArrayList;
 import java.util.List;
 
+//for Composite
 public class CompositeFunctions implements Functions {
 
     private List<Functions> list = new ArrayList<>();

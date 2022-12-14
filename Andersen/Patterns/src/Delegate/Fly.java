@@ -18,6 +18,7 @@ public class Fly implements CreateEgg {
         canFly.flying();
     }
 
+    //Factory
     @Override
     public void createEgg() {
         System.out.println("Я откложила яйца и через неделю жду личинок");
