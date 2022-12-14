@@ -7,6 +7,10 @@ import Adapter.Adapter;
 import Builder.RefWithNoFrost;
 import Builder.RefWithoutNoFrost;
 import Builder.User;
+import Decorator.Decorator;
+import Decorator.ParadoxSystem;
+import Decorator.SendHelpMessage;
+import Decorator.SendSms;
 import Delegate.Bird;
 import Delegate.CanFly;
 import Delegate.Fly;
@@ -23,7 +27,7 @@ public class Main {
     static Bird bird;
     static Fly fly;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        patternDelegate(bird, fly);
 //        patternFacade(bird, fly);
 //        patternFactory();
@@ -31,7 +35,8 @@ public class Main {
 //        patternBuilder();
 //        patternPrototype();
 //        patternComposite();
-        patternAdapter();
+//        patternAdapter();
+        patternDecorator();
     }
 
     //TODO: Delegate pattern
@@ -161,5 +166,19 @@ public class Main {
     public static void patternAdapter(){
         Adapter adapter = new Adapter();
         adapter.getListOfRandomNumbers();
+    }
+
+    //TODO: Decorator pattern
+    private static void patternDecorator() throws InterruptedException {
+        ParadoxSystem sys = new ParadoxSystem();
+        Decorator d1 = new SendHelpMessage(sys);
+        Decorator d2 = new SendSms(new SendHelpMessage(sys));
+        sys.turnOnSign(); //without decorator
+
+        Thread.sleep(1000);
+        d1.turnOnSign(); //with SendHelpMessage
+
+        Thread.sleep(1000);
+        d2.turnOnSign(); //with HelpMessage and SendSms
     }
 }
