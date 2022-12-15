@@ -20,6 +20,8 @@ import Factory.ChickCreator;
 import Factory.CreateEgg;
 import Factory.EggCreator;
 import Factory.LarvaCreator;
+import IteratorPattern.ConcreteAggregator;
+import IteratorPattern.Iterator;
 import Mediator.*;
 import Memento.Console;
 import ObserverPattern.Human;
@@ -31,6 +33,7 @@ import Strategy.*;
 import TemplateMethod.AbstractWagon;
 import TemplateMethod.Cart;
 import TemplateMethod.Coach;
+import VisitorPattern.*;
 
 import java.util.Scanner;
 
@@ -56,7 +59,9 @@ public class Main {
 //        patternObserver();
 //        patternState();
 //        patternTemplate();
-        patternStrategy();
+//        patternStrategy();
+//        patternVisitor();
+        patternIterator();
     }
 
     //TODO: Delegate pattern
@@ -281,6 +286,23 @@ public class Main {
         int[] array1 = {7,6,0,12,15,27,13};
         client.setStrategy(new InsertingSort());
         client.executeStrategy(array1);
+    }
 
+    //TODO: Visitor pattern
+    public static void patternVisitor(){
+        Element el = new CarElement();
+        Visitor man = new VisitorMan();
+        Visitor woman = new VisitorWoman();
+
+        el.accept(man);
+    }
+
+    //TODO: Iterator pattern
+    public static void patternIterator(){
+        ConcreteAggregator c = new ConcreteAggregator();
+        Iterator i = c.getIterator();
+        while(i.hasNext()){
+            System.out.println(i.next());
+        }
     }
 }
