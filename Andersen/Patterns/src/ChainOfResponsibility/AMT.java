@@ -7,12 +7,6 @@ public class AMT {
     protected static final int denomination5000 = 5000;
     protected static final int denomination10000 = 10000;
     protected static final int denomination20000 = 20000;
-    private final String HUF500 = "500 Huf";
-    private final String HUF1000 = "1000 Huf";
-    private final String HUF2000 = "2000 Huf";
-    private final String HUF5000 = "5000 Huf";
-    private final String HUF10000 = "10000 Huf";
-    private final String HUF20000 = "20000 Huf";
 
     private int count500Huf;
     private int count1000Huf;
@@ -101,29 +95,5 @@ public class AMT {
 
     public int getCount20000Huf() {
         return count20000Huf;
-    }
-
-    public String getHUF500() {
-        return HUF500;
-    }
-
-    public String getHUF1000() {
-        return HUF1000;
-    }
-
-    public String getHUF2000() {
-        return HUF2000;
-    }
-
-    public String getHUF5000() {
-        return HUF5000;
-    }
-
-    public String getHUF10000() {
-        return HUF10000;
-    }
-
-    public String getHUF20000() {
-        return HUF20000;
     }
 }

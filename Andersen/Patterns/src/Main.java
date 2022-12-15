@@ -20,6 +20,7 @@ import Factory.ChickCreator;
 import Factory.CreateEgg;
 import Factory.EggCreator;
 import Factory.LarvaCreator;
+import Memento.Console;
 
 import java.util.Scanner;
 
@@ -39,7 +40,8 @@ public class Main {
 //        patternAdapter();
 //        patternDecorator();
 //        patternCommand();
-        patternChainOfResponsibility();
+//        patternChainOfResponsibility();
+        patternMemento();
     }
 
     //TODO: Delegate pattern
@@ -202,5 +204,10 @@ public class Main {
     //TODO: Chain Of Responsibility pattern
     public static void patternChainOfResponsibility(){
         SomeUser someUser = new SomeUser();
+    }
+
+    //TODO: Memento pattern
+    public static void patternMemento(){
+        Console console = new Console();
     }
 }

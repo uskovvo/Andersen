@@ -10,7 +10,7 @@ public class Module20000 extends Module {
             money = money - AMT.denomination20000 * countNote;
             amt.setCountMoneyInAtm(amt.getCountMoneyInAtm() - money);
             System.out.println(amt.getCountMoneyInAtm());
-            System.out.println("Выдано " + countNote + " купюр достоинством " + amt.getHUF20000());
+            System.out.println("Выдано " + countNote + " купюр достоинством 20000HUF");
         }
 
         if (money > 0 && next != null){
