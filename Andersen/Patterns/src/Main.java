@@ -27,6 +27,9 @@ import ObserverPattern.Police;
 import State.DeviceContext;
 import State.TurnOffAction;
 import State.TurnOnAction;
+import TemplateMethod.AbstractWagon;
+import TemplateMethod.Cart;
+import TemplateMethod.Coach;
 
 import java.util.Scanner;
 
@@ -50,7 +53,8 @@ public class Main {
 //        patternMemento();
 //        patternMediator();
 //        patternObserver();
-        patternState();
+//        patternState();
+        patternTemplate();
     }
 
     //TODO: Delegate pattern
@@ -250,5 +254,14 @@ public class Main {
         d.doAction();
         d.setAction(new TurnOffAction());
         d.doAction();
+    }
+
+    //TODO: Template pattern
+    public static void patternTemplate(){
+        AbstractWagon cart = new Cart();
+        AbstractWagon coach = new Coach();
+
+        cart.template();
+        coach.template();
     }
 }
