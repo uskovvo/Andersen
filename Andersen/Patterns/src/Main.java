@@ -27,6 +27,7 @@ import ObserverPattern.Police;
 import State.DeviceContext;
 import State.TurnOffAction;
 import State.TurnOnAction;
+import Strategy.*;
 import TemplateMethod.AbstractWagon;
 import TemplateMethod.Cart;
 import TemplateMethod.Coach;
@@ -54,7 +55,8 @@ public class Main {
 //        patternMediator();
 //        patternObserver();
 //        patternState();
-        patternTemplate();
+//        patternTemplate();
+        patternStrategy();
     }
 
     //TODO: Delegate pattern
@@ -263,5 +265,21 @@ public class Main {
 
         cart.template();
         coach.template();
+    }
+
+    //TODO: Strategy pattern
+    public static void patternStrategy(){
+        Client client = new Client();
+        int[] array = {5,10,20,11,15};
+        client.setStrategy(new SelectionSort());
+        client.executeStrategy(array);
+
+        int[] arr = {1,9,52,0,14,38};
+        client.setStrategy(new BubbleSort());
+        client.executeStrategy(arr);
+
+        int[] array1 = {7,6,0,12,15,27,13};
+        client.setStrategy(new InsertingSort());
+        client.executeStrategy(array1);
     }
 }
