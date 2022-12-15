@@ -1,6 +1,6 @@
 package IteratorPattern;
 
-public class ConcreteAggregator implements Aggregate{
+public class Tasks implements Container {
 
     String[] tasks = {"Учить Java", "Потом еще учить Java", "Ииииии опять учить Java"};
 

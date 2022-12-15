@@ -1,5 +1,5 @@
 package IteratorPattern;
 
-public interface Aggregate {
+public interface Container {
     Iterator getIterator();
 }

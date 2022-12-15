@@ -20,12 +20,14 @@ import Factory.ChickCreator;
 import Factory.CreateEgg;
 import Factory.EggCreator;
 import Factory.LarvaCreator;
-import IteratorPattern.ConcreteAggregator;
+import IteratorPattern.Tasks;
 import IteratorPattern.Iterator;
 import Mediator.*;
 import Memento.Console;
 import ObserverPattern.Human;
 import ObserverPattern.Police;
+import ProxyPattern.Image;
+import ProxyPattern.RealImage;
 import State.DeviceContext;
 import State.TurnOffAction;
 import State.TurnOnAction;
@@ -61,7 +63,8 @@ public class Main {
 //        patternTemplate();
 //        patternStrategy();
 //        patternVisitor();
-        patternIterator();
+//        patternIterator();
+        patternProxy();
     }
 
     //TODO: Delegate pattern
@@ -299,10 +302,16 @@ public class Main {
 
     //TODO: Iterator pattern
     public static void patternIterator(){
-        ConcreteAggregator c = new ConcreteAggregator();
+        Tasks c = new Tasks();
         Iterator i = c.getIterator();
         while(i.hasNext()){
             System.out.println(i.next());
         }
+    }
+
+    //TODO: Proxy pattern
+    private static void patternProxy() {
+        Image image = new RealImage("файл с картинкой");
+        image.display();
     }
 }
