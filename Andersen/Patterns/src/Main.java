@@ -20,6 +20,8 @@ import Factory.ChickCreator;
 import Factory.CreateEgg;
 import Factory.EggCreator;
 import Factory.LarvaCreator;
+import Flyweight.Shape;
+import Flyweight.ShapeFactory;
 import IteratorPattern.Tasks;
 import IteratorPattern.Iterator;
 import Mediator.*;
@@ -37,6 +39,8 @@ import TemplateMethod.Cart;
 import TemplateMethod.Coach;
 import VisitorPattern.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -64,7 +68,8 @@ public class Main {
 //        patternStrategy();
 //        patternVisitor();
 //        patternIterator();
-        patternProxy();
+//        patternProxy();
+        patternFlyweight();
     }
 
     //TODO: Delegate pattern
@@ -310,8 +315,30 @@ public class Main {
     }
 
     //TODO: Proxy pattern
-    private static void patternProxy() {
+    public static void patternProxy() {
         Image image = new RealImage("файл с картинкой");
         image.display();
+    }
+
+    public static void patternFlyweight(){
+        ShapeFactory shapeFactory = new ShapeFactory();
+        List<Shape> listShapes = new ArrayList<>();
+
+        listShapes.add(shapeFactory.getShape("круг"));
+        listShapes.add(shapeFactory.getShape("точка"));
+        listShapes.add(shapeFactory.getShape("квадрат"));
+        listShapes.add(shapeFactory.getShape("круг"));
+        listShapes.add(shapeFactory.getShape("точка"));
+        listShapes.add(shapeFactory.getShape("квадрат"));
+        listShapes.add(shapeFactory.getShape("точка"));
+        listShapes.add(shapeFactory.getShape("точка"));
+        listShapes.add(shapeFactory.getShape("квадрат"));
+        listShapes.add(shapeFactory.getShape("квадрат"));
+
+        for(Shape s: listShapes){
+            int x = (int) (Math.random() * 10);
+            int y = (int) (Math.random() * 15);
+            s.draw(x, y);
+        }
     }
 }
