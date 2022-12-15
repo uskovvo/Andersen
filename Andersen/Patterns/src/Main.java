@@ -20,6 +20,7 @@ import Factory.ChickCreator;
 import Factory.CreateEgg;
 import Factory.EggCreator;
 import Factory.LarvaCreator;
+import Mediator.*;
 import Memento.Console;
 
 import java.util.Scanner;
@@ -41,7 +42,8 @@ public class Main {
 //        patternDecorator();
 //        patternCommand();
 //        patternChainOfResponsibility();
-        patternMemento();
+//        patternMemento();
+        patternMediator();
     }
 
     //TODO: Delegate pattern
@@ -209,5 +211,19 @@ public class Main {
     //TODO: Memento pattern
     public static void patternMemento(){
         Console console = new Console();
+    }
+
+    //TODO: Mediator pattern
+    public static void patternMediator(){
+        ConcreteMediator m = new ConcreteMediator();
+
+        Friend1 c1 = new Friend1(m);
+        Friend2 c2 = new Friend2(m);
+
+        m.setColleague1(c1);
+        m.setColleague2(c2);
+
+        c1.send("Привет");
+        c2.send("Добрый день");
     }
 }
