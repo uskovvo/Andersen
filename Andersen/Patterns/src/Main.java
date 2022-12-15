@@ -22,6 +22,8 @@ import Factory.EggCreator;
 import Factory.LarvaCreator;
 import Mediator.*;
 import Memento.Console;
+import ObserverPattern.Human;
+import ObserverPattern.Police;
 
 import java.util.Scanner;
 
@@ -43,7 +45,8 @@ public class Main {
 //        patternCommand();
 //        patternChainOfResponsibility();
 //        patternMemento();
-        patternMediator();
+//        patternMediator();
+        patternObserver();
     }
 
     //TODO: Delegate pattern
@@ -225,5 +228,14 @@ public class Main {
 
         c1.send("Привет");
         c2.send("Добрый день");
+    }
+
+    //TODO: Observer pattern
+    public static void patternObserver(){
+        ParadoxSystem p = new ParadoxSystem();
+        p.addObserver(new Police());
+        p.addObserver(new Human());
+
+        p.setStatusSys(false, false);
     }
 }

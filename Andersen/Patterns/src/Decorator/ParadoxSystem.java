@@ -1,6 +1,17 @@
 package Decorator;
 
-public class ParadoxSystem implements TurnOnSignaling{
+import ObserverPattern.Observed;
+import ObserverPattern.Observer;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ParadoxSystem implements TurnOnSignaling,
+        Observed //for Observer pattern
+{
+    private boolean army; //for Observer pattern
+    private boolean alarm; //for Observer pattern
+    private List<Observer> list = new ArrayList<>(); //for Observer pattern
 
     //for Command pattern
     public void army(){
@@ -15,5 +26,30 @@ public class ParadoxSystem implements TurnOnSignaling{
     @Override
     public void turnOnSign() {
         System.out.println("При тревоге я включаю сирену!!!");
+    }
+
+    //for Observer pattern
+    @Override
+    public void addObserver(Observer o) {
+        list.add(o);
+    }
+
+    //for Observer pattern
+    @Override
+    public void removeObserver(Observer o) {
+        list.remove(o);
+    }
+
+    //for Observer pattern
+    @Override
+    public void notifyObservers() {
+        list.forEach(o -> o.handleEvent(army, alarm));
+    }
+
+    //for Observer pattern
+    public void setStatusSys(boolean army, boolean alarm){
+        this.army = army;
+        this.alarm = alarm;
+        notifyObservers();
     }
 }
