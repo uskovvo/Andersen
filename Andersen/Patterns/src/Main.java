@@ -24,6 +24,9 @@ import Mediator.*;
 import Memento.Console;
 import ObserverPattern.Human;
 import ObserverPattern.Police;
+import State.DeviceContext;
+import State.TurnOffAction;
+import State.TurnOnAction;
 
 import java.util.Scanner;
 
@@ -46,7 +49,8 @@ public class Main {
 //        patternChainOfResponsibility();
 //        patternMemento();
 //        patternMediator();
-        patternObserver();
+//        patternObserver();
+        patternState();
     }
 
     //TODO: Delegate pattern
@@ -237,5 +241,14 @@ public class Main {
         p.addObserver(new Human());
 
         p.setStatusSys(false, false);
+    }
+
+    //TODO: State pattern
+    public static void patternState(){
+        DeviceContext d = new DeviceContext();
+        d.setAction(new TurnOnAction());
+        d.doAction();
+        d.setAction(new TurnOffAction());
+        d.doAction();
     }
 }
