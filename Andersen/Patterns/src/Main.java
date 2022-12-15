@@ -281,5 +281,6 @@ public class Main {
         int[] array1 = {7,6,0,12,15,27,13};
         client.setStrategy(new InsertingSort());
         client.executeStrategy(array1);
+
     }
 }

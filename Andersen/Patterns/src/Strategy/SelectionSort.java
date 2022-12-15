@@ -17,5 +17,6 @@ public class SelectionSort implements Sorting{
             }
         }
         System.out.println("после: \t" + Arrays.toString(arr));
+
     }
 }

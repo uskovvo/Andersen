@@ -9,5 +9,6 @@ public class Client {
 
     public void executeStrategy(int[] arr) {
         sorting.sort(arr);
+
     }
 }

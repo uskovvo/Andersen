@@ -17,5 +17,6 @@ public class InsertingSort implements Sorting{
             }
         }
         System.out.println("после: \t" + Arrays.toString(arr));
+
     }
 }
