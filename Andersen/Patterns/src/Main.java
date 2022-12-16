@@ -30,6 +30,8 @@ import ObserverPattern.Human;
 import ObserverPattern.Police;
 import ProxyPattern.Image;
 import ProxyPattern.RealImage;
+import SingletonPattern.Runn;
+import SingletonPattern.Singleton;
 import State.DeviceContext;
 import State.TurnOffAction;
 import State.TurnOnAction;
@@ -69,7 +71,8 @@ public class Main {
 //        patternVisitor();
 //        patternIterator();
 //        patternProxy();
-        patternFlyweight();
+//        patternFlyweight();
+        patternSingleton();
     }
 
     //TODO: Delegate pattern
@@ -320,6 +323,7 @@ public class Main {
         image.display();
     }
 
+    //TODO: Flyweight pattern
     public static void patternFlyweight(){
         ShapeFactory shapeFactory = new ShapeFactory();
         List<Shape> listShapes = new ArrayList<>();
@@ -340,5 +344,25 @@ public class Main {
             int y = (int) (Math.random() * 15);
             s.draw(x, y);
         }
+    }
+
+    //TODO: Singleton pattern
+    public static void patternSingleton() throws InterruptedException {
+        Singleton s = Singleton.getInstance();
+        Singleton s2 = Singleton.getInstance();
+
+        System.out.println(s.hashCode());
+        System.out.println(s2.hashCode());
+
+        Thread[] t = new Thread[1000];
+        for(int i = 0; i < 1000; i++){
+            t[i] = new Thread(new Runn());
+            t[i].start();
+        }
+
+        for(int i = 0; i < 1000; i++){
+            t[i].join();
+        }
+        System.out.println(Singleton.getCounter());
     }
 }
