@@ -23,6 +23,8 @@ import Factory.EggCreator;
 import Factory.LarvaCreator;
 import Flyweight.Shape;
 import Flyweight.ShapeFactory;
+import InterpreterPattern.Context;
+import InterpreterPattern.Expression;
 import IteratorPattern.Tasks;
 import IteratorPattern.Iterator;
 import Mediator.*;
@@ -74,7 +76,8 @@ public class Main {
 //        patternProxy();
 //        patternFlyweight();
 //        patternSingleton();
-        patternBridge();
+//        patternBridge();
+        patternInterpreter();
     }
 
     //TODO: Delegate pattern
@@ -381,5 +384,11 @@ public class Main {
         car3.showDetails();
         car4.showDetails();
         car5.showDetails();
+    }
+
+    public static void patternInterpreter(){
+        Context context = new Context();
+        Expression e = context.evaluate("25-31+52");
+        System.out.println(e.interpret());
     }
 }
