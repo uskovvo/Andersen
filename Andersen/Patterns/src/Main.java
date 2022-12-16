@@ -4,6 +4,7 @@ import AbstractFactory.Interfaces.Factory;
 import AbstractFactory.Interfaces.Refrigerator;
 import AbstractFactory.Interfaces.WashMachine;
 import Adapter.Adapter;
+import Bridge.*;
 import Builder.RefWithNoFrost;
 import Builder.RefWithoutNoFrost;
 import Builder.User;
@@ -72,7 +73,8 @@ public class Main {
 //        patternIterator();
 //        patternProxy();
 //        patternFlyweight();
-        patternSingleton();
+//        patternSingleton();
+        patternBridge();
     }
 
     //TODO: Delegate pattern
@@ -364,5 +366,20 @@ public class Main {
             t[i].join();
         }
         System.out.println(Singleton.getCounter());
+    }
+
+    //TODO: Bridge pattern
+    public static void patternBridge(){
+        Car car1 = new Hatchback(new Renault());
+        Car car2 = new Sedan(new Toyota());
+        Car car3 = new Sedan(new Renault());
+        Car car4 = new Hatchback(new Toyota());
+        Car car5 = new Sedan(new BMW());
+
+        car1.showDetails();
+        car2.showDetails();
+        car3.showDetails();
+        car4.showDetails();
+        car5.showDetails();
     }
 }
